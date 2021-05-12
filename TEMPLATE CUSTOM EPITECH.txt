@@ -1,0 +1,147 @@
+COMPILATION
+========================
+Use the script.
+To make it run, check the "how_to_compile_md_to_pdf" file.
+
+To compile without specific options: 
+	./Epitech_template_compilation.sh source.md
+
+To compile as slidewhow: 
+	./Epitech_template_compilation.sh --slide source.md
+
+To compile in HTML format: 
+	./Epitech_template_compilation.sh [--slide] --html source.md
+
+To force a logo file on a specific document
+./Epitech_template_compilation.sh -l logo [--slide] source.md
+
+NB: to force a YAML variable via pandoc (to be modified inside the script): 
+	pandoc in.md -o out.pdf --template=Epitech_template.tex -V title=toto
+    to force a YAML file via pandoc (to be modified inside the script): 
+	pandoc in.md file.yaml -o out.pdf --template=Epitech_template.tex
+
+
+
+
+MARKDOWN
+========================
+check https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+
+ARRAY
+-----------------------
+markdown style (http://www.tablesgenerator.com/markdown_tables)
+or using macro (below)
+
+
+
+
+
+CUSTOM MACROS
+========================
+LAYOUT
+-----------------------
+#br 							new line
+#newpage						new page
+#space(length in cm)			horizontal space
+#center(text) 					center text
+#twoColumns(w, left, right)		two columns output (w is the width of left columns in %, from 0 to 1)
+
+#hugeText(text)
+#largeText(text)
+#smallText(text)
+#typewriter(text)
+#color(col, text)
+#high(text)
+#low(text)
+
+
+
+BOXES
+------------------------
+#warn(text)						warning box 	
+#hint(text) 					hint box
+#quote(src|, text)				quote box
+!!! one can use verbatim in terminal (see examples at the end) !!!
+#terminal(text) 				terminal box with linux prompt
+#terminalMS(text) 				terminal box with Miscrosoft prompt
+#terminalNoPrompt(text) 		terminal box without prompt
+
+
+ARRAY
+------------------------
+!!! see examples at the end !!!
+#array
+#next
+
+
+IMAGES
+------------------------
+#imageCenter(im, width)									.8cm rounded centered image
+#imageCenterCorners(im, width, corner size)				centered image
+#imageLeft(im, width, height in number of lines)		left-aligned image
+#imageRight(im, width, height in number of lines)		right-aligned image
+
+
+MISC
+-----------------------
+#prompt 				print a prompt
+#promptMS				print a Miscrosoft prompt
+#hfill					fill in the line (useful to get left-aligned and right aligned on the same line)
+#cr 					carriage return character ('\n')
+
+
+
+
+PREAMBULE
+========================
+module:			module code					[MANDATORY]
+title:			document title 				[MANDATORY]
+subtitle:		document subtitle 			[MANDATORY]
+
+binary: 		name of the binary
+repository: 	name of the repo
+language:		language					[#allLanguages to output all available languages)
+compilation: 	compilation instructions	[none, #makefile, #makefileIfNecessary or specific instructions]
+build:			build tool
+
+noFormalities:	true						[don't output formalities => noCleanRepo & noBonusDir & noErrorMess & no binary, repo,...]
+noCleanRepo:	true						[don't output clean repository instructions]
+noBonusDir:		true						[don't output bonus instructions]
+noErrorMess:	true 						[don't output error management instructions]
+
+author:			name of the author
+version:		version of the file			[MANDATORY] (!!! don't forget to inscrease it manually !!!)
+
+debug:			true 						[keep generated tex file]		
+
+slideshow:		true 						[slideshow compilation]
+toc:			true   						[table of content for slideshow compilation]
+noQuestion:		true 						[don't show the last slide ("any question?")]
+
+
+
+EXAMPLES
+========================
+[terminal example with prompt and verbatim]
+#terminal(cat main.c
+
+	void		my_swap(int *, int *);
+	int			main()
+	{
+		int 	nb1 = 42;
+		int 	nb2 = 21;
+
+		printf("%d %d\n", nb1, nb2);
+		my_swap(\&nb1, _&nb2);
+		printf("%d %d\n", nb1, nb2);
+	}
+#prompt cc *.c -o ex01
+#prompt ./ex01
+42 21
+21 42)
+
+[array example, latex style]
+#array(l r r r r r r l, 
+drwxrwxr-x #next 2  #next user #next group #next 4096#next Jun 18 #next 15:07 #next .
+drwxr-xr-x #next 35 #next user #next group #next 4096 #next Jun 18 #next 15:07 #next .)
