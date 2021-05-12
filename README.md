@@ -187,7 +187,23 @@ public class Main {
 
 ### Le polymorphisme - La rédéfinition
 
-En java on peut redéfinir des méthodes de la classe parente, par défaut la classe parente est java.lang.Object même si **extends Object** n'est pas présent
+En java on peut redéfinir des méthodes de la classe parente, par défaut la classe parente est java.lang.Object même si **extends Object** n'est pas présent, les méthodes `toString()`, `hashCode()`, `equals()` existent par défaut
+
+```java
+public class OverridableClass {
+
+    public static void main(String[] args) {
+        System.out.println(this.toString()); //print "Hi I'm an Overridable method"
+    }
+    
+    @Override //This annotation is not necessary but it's preferable to use it to clarify the code
+    public String toString() {
+        return "Hi I'm an Overridable method";
+    }
+    
+}
+
+```
 
 #newpage
 
