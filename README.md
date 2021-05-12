@@ -7,7 +7,7 @@ language:		java
 compilation:	javac, automated compilation with IDE
 
 author:			Alwyn
-version:		1.10
+version:		1.11
 ---
 
 # Découverte du Java
@@ -83,8 +83,11 @@ En java on peut changer la visibilité d'une variable, d'une classe, d'une fonct
 - Les modifieurs d'accéssibilité
     - `static` une variable ou une fonction statique peut être accédée sans instancier la classe, elle est aussi unique à cette classe
     - `final` pour faire simple, c'est l'équivalent du `const` en C
+    - `super` bon techniquement c'est pas un modifieur d'accéssibilité, au contraire il permet d'accéder à des méthodes/variables de la classe parente
 
 #warn(Les variables statiques sont toutes les mêmes peu importe l'instance de la classe)
+
+#hint(Le keyword **super** est pratique lorsque l'on veut utiliser la méthode de la classe parent et y ajouter quelque chose, ou bien pour modifier une variable de la classe parente à la place d'une varible déclaré dans la classe enfant)
 
 ### Les types
 
@@ -199,6 +202,7 @@ public class OverridableClass {
     @Override //This annotation is not necessary but it's preferable to use it to clarify the code
     public String toString() {
         return "Hi I'm an Overridable method";
+        //return super.toString() + "Hi ";// call the method toString of the parent and add "Hi"
     }
     
 }
