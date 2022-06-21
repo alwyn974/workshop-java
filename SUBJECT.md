@@ -53,7 +53,7 @@ En java, on peut changer la visibilité d'une variable, d'une classe, d'une fonc
 - Les modifieurs d'accessibilité
   - `static` une variable ou une fonction statique peut être accédée sans instancier la classe, elle est aussi unique à cette classe
   - `final` pour faire simple, c'est l'équivalent du `const` en C/C++
-  - `super` bon techniquement, ce n'est pas un modifieur d'accessibilité, au contraire il permet d'accéder à des méthodes/variables de la classe parente
+  - `super` bon techniquement, ce n'est pas un modifieur d'accessibilité, au contraire il permet d'accéder à des méthodes/variables de la classe parente, il permet surtout d'appeler le constructeur de la classe parente
 
 #warn(Les variables statiques sont toutes les mêmes peu importe l'instance de la classe)
 
@@ -112,27 +112,19 @@ public class Cat extends Animal implements ILiveable, IMovable {
         this.name = name;
     }
 
-    /**
-     * Overriden function from interface IMovable
-     * @param x the x coordinate
-     * @param y the y coordinate
-     */
+    //Overriden function from interface IMovable
     @Override
     public void move(int x, int y) {
         System.out.println("X: " + x + " Y:" + y);
     }
 
-    /**
-     * Overriden function from interface IMovable
-     */
+    //Overriden function from interface IMovable
     @Override
     public void live() {
         System.err.println("I'm dead bruh");
     }
 
-    /**
-     * Overriden method from Animal class
-     */
+    //Overriden method from Animal class
     @Override
     public void eat() {
         System.out.println("I'm hungry !!!");
@@ -140,6 +132,9 @@ public class Cat extends Animal implements ILiveable, IMovable {
     
 }
 ```
+
+#hint(@Override est une annotation, elle permet de préciser qu'une méthode est override, cette annotation spécifique n'est pas obligatoire.
+On peut créer nos propres annotations aussi. Les annotations seront très utiles dans les prochains workshop)
 
 ### Le polymorphisme - La surcharge
 
@@ -360,17 +355,85 @@ public class Main {
 
 ### Création d'un projet avec gradle
 
-Si vous venez d'installer Intellij Idea, vous aurez la fenêtre ci-dessous
+Si vous venez d'installer Intellij Idea, cliquez sur `New Project` sinon aller dans `File > New > Project`
 
-#imageLeft(new_idea.png, 300px, 1)
-#space(10) Uwu
+#imageLeft(new_project.png, 200px, 9)
+Choisissez le nom du projet (ex : `WorkshopJava`)
+Sélectionnez `Java`
+Sélectionnez `Gradle`
+Sélectionnez la version du JDK (11 si vous êtes sur le dump)
+Dans `Advanced Settings` mettez votre package dans `GroupID` (ex : `com.github.username.workshop`)
+Dans `ArtifactId` mettez le nom du jar (ex : `WorkshopJava`)
+Il faudra alors attendre la fin de la création du projet gradle (Quand le dossier `src` apparait, c'est fini)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Lancement d'un projet
+
+Pour lancer un projet Java, à coter du `main` vous aurez un petit logo de lancement, il suffit de cliquer dessus et c'est parti !
+Cela va créer une configuration sur Intellij pour lancer le programme avec ce `main` précisément, car en Java on peut avoir plusieurs mains et en choisir un en lançant un `.jar`
 
 #newpage
-## Exercices
 
-#new page
+### Exercice 1
+
+- Créez votre propre package (ex: `com.github.username.workshop`)
+- Dans ce package créez une classe `HelloWorld.java`
+- Créez une méthode main en `public static` et en prenant en argument un `String... args`
+- Trouvez comment print un `Hello World !\n`
+
+#terminal(Lancement avec intellij parce que build c'est long
+Hello World!)
+
+### Exercice 2
+
+Créez-le sous package life
+
+Créez une classe Entity elle devra posséder :
+
+- Un constructeur qui initialisera les variables ci-dessous
+- `String name` accessible uniquement via getter/setter 
+- `double x, y, z` accessible uniquement via la classe enfant (ou package) et par getter/setter
+
+### Exercice 3
+
+Créez une classe `EntityLiving` qui héritera de la classe `Entity`, elle devra posséder :
+
+- `double life` accessible uniquement via getter/setter
+- `boolean isAlive()` une fonction publique pour dire si l'entitée est en vie (life > 0)
+- `String sentence` une variable publique (créer les getter/setter quand même)
+- `void displaySentence()` une fonction qui affichera la sentence
+
+### Exercice 4
+
+### Exercice 5
+
+Différenciez une classe depuis une liste d'objet.
+
+#hint(Regardez comment utiliser le **keyword** `instanceof`)
+
+### Exercice 6
+
+### Exercice 7
+
+### Exercice 8
+
+### Exercice 9
+
+### Exercice 10
+
+### Tests unitaires
+
+Comme tout langage le Java dispose de plusieurs libraries pour faire des tests unitaires, on va utiliser la plus connue: `JUnit`
+
+#newpage
 # Pour approfondir votre apprentissage
 
-Beaucoup de site propose des cours sur le java, en voici quelques un :
+Beaucoup de site propose des cours sur le Java, en voici quelques un :
 - [Jmdoudoux.fr](http://www.jmdoudoux.fr/accueil_java.htm)
 - [Koor.fr](https://koor.fr/Java/Index.wp)
