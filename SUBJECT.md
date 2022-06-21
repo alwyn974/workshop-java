@@ -71,6 +71,9 @@ Vu que le Java est basé sur le C++ et donc le C, les types restent à peu près
 - `double`, `int`, `long`, `float`, `short` restent les mêmes
 - Vos objets à vous
 
+#warn(Pour `double`, `int`, `long`, `float`, `short` se sont des types primitifs, et non pas des objets. 
+Ils possèdent donc leur équivalent en tant d'objet `Double`, `Integer`, `Long`, `Float`, `Short`)
+
 #### Classes
 
 - `enum` les enums en java sont beaucoup plus complet que ceux en C/C++, vu que ce sont des objets, on peut y assigner plus qu'un simple Integer comme valeur
@@ -183,13 +186,191 @@ public class Main {
 
 }
 ```
- 
-## Le Java ! La pratique :3
 
 ### Structure d'un projet java
 
-Les projets 
+Les projets Java sont principalement généré par des builds tools, comme `gradle` qu'on va utiliser dans ce workshop.
+La structure reste plutôt basique un dossier `src` où l'on mettra tout notre code, néanmoins en utilisant gradle dans ce dossier vous aurez un dossier `test` et un dossier `main`.
+Le dossier `test` est pour les tests unitaires et le dossier `main` pour mettre votre code.
 
-### Création d'un objet
+### Qu'est-ce qu'un package ?
 
-Pour créer une classe
+En Java pour organiser votre code, on va créer ce qu'on appelle des `packages`, ce sont juste des sous dossiers qui seront dans `src/main`. Cela permet d'avoir un code organisé selon des catégories. #br
+Généralement un package se construit sous la forme d'un ndd (nom de domaine) inversé + le nom du projet et différents sous packages.
+
+Exemple: 
+```
+re.alwyn974.monsuperworkshop
+re.alwyn974.monsuperworkshop.subpackage
+re.alwyn974.monsuperworkshop.epitech.workshop
+```
+
+#warn(Il y a une convention de nommage pour les packages, ils doivent être en minuscules. On n'est pas obligé de respecter cette convention, mais c'est mieux)
+
+### Qu'est-ce qu'un import
+
+En java si vous voulez avoir accès à d'autres classes, il vous faut utiliser les `import`, l'import est l'équivalent d'un include de header contenant les prototypes en C/C++.
+
+Exemple: 
+```java
+import re.alwyn974.monsuperworkshop.Marvin;
+import re.alwyn974.monsuperworkshop.*;
+import static re.alwyn974.monsuperworkshop.Marvin.sayHello;
+import static re.alwyn974.monsuperworkshop.Marvin.*;
+```
+
+Il existe 2 types d'import :
+- L'import static, permet d'accéder à des variables et méthodes **statiques** sans préciser le nom de la classe
+- L'import normal, permet d'accéder à une classe et ses méthodes qui se trouvent dans un autre package
+
+L'import avec wildcard `*` permet d'importer toutes les classes d'un package ou toutes les méthodes/variables d'une classe avec l'import static.
+
+#hint(En utilisant Intellij Idea et l'autocomplétion la plupart des imports se feront automatiquement, sauf en cas de conflits là il faudra choisir l'import spécifique.
+Les classes contenues dans le même package sont accessibles directement)
+
+#newpage
+### Création d'un nouvel objet
+
+En Java tout code doit être dans une classe/interface/enum. On ne peut pas déclarer une méthode hors d'une classe comme en C/C++.
+
+Pour créer une classe/interface/enum, il y a une structure à suivre :
+
+- On commence par `public` ou rien (dans ce cas la classe sera en privée)
+- Ensuite on précise le type d'objet que l'on crée (`class`, `interface`, `enum`, `abstract class`)
+- On précise le nom de l'objet
+- Si on veut faire de l'héritage, on utilise `extends` et/ou `implements` pour les interfaces et on précise le nom de la classe parente
+- Et après on ouvre des accolades
+
+Exemple :
+
+```java
+public class Marvin {
+    //TODO: add code here
+}
+
+class ImNotAccessible {
+    //TODO: add code here
+}
+
+public interface ITakeALotOfSpace {
+    //TODO: add code here
+}
+
+public abstract class AbstractChooseAName {
+    //TODO: add code here
+}
+
+public enum EnumTest {
+    //TODO: add code here
+}
+```
+
+#warn(Comme pour les packages, les noms d'objets doivent respecter une convention de nommage, pour les objets, on suit le PascalCase, qui consiste à mettre en majuscule la première lettre de chaque mot.)
+
+#warn(Le nom d'un objet doit être aussi le même que le fichier Java correspondant)
+
+#newpage
+### Création d'un constructeur
+
+Comme en C++ on peut ajouter un constructeur à une classe. Par contre, il n'y a pas de destructeur.
+Pour créer un constructeur il y a une structure à suivre :
+
+- On commence par un modifieur de visibilité (`public`, `private`, `protected`) ou rien (dans ce cas le constructeur sera en privé)
+- On précise le nom de la classe
+- On précise les paramètres du constructeur
+- Et enfin on ouvre des accolades
+
+Exemple:
+```java
+public class Marvin {
+    public Marvin(String name) {
+
+    }
+}
+
+public class PrivateConstructor {
+    private PrivateConstructor() {
+
+    }
+}
+
+public class ProtectedConstructor {
+    protected ProtectedConstructor() {
+
+    }
+}
+
+public class ClassWithFinalVariable {
+    final String toto;
+    
+    public ClassWithFinalVariable(String toto) {
+        this.toto = toto;
+    }
+}
+```
+
+#warn(Si vous avez déclaré des variables `final` dans votre objet, sans les initialiser, il faudra les initialiser dans le constructeur)
+
+#newpage
+### Création d'une variable ou une méthode
+
+Pour créer une variable ou une méthode, il faut quelle soit dans une classe/interface/enum/abstract class.
+Il y a aussi certaines structures à suivre :
+
+#### Variable
+- On commence par un modifieur de visibilité (`public`, `private`, `protected`) ou rien (dans ce cas la variable sera en privée)
+- On précise le type de la variable (String, int, boolean, etc.)
+- On précise le nom de la variable
+- On peut assigner la variable à une valeur ou non
+
+#### Méthode
+- On commence par un modifieur de visibilité (`public`, `private`, `protected`) ou rien (dans ce cas la méthode sera en privée)
+- On précise le type de retour de la méthode (String, int, boolean, etc.)
+- On précise le nom de la méthode
+- On précise les paramètres de la méthode
+
+Exemples:
+
+```java
+public class Main {
+    private static final String NAME = "Marvin";
+    private boolean isMarvin = true;
+    private int age = 42;
+    
+    private void method() {
+        
+    }
+    
+    private String getName() {
+        return NAME;
+    }
+    
+    private boolea isMarvin() {
+        return isMarvin;
+    }
+}
+```
+
+#warn(Ici on suit la convention de nommage du `camelCase` qui consiste à mettre en minuscule la première lettre du mot et en mettre une majuscule à chaque mot suivant.)
+
+#warn(Une petite spécification pour les variables `static final` on les écrit en `SCREAMING_SNAKE_CASE`)
+
+#newpage
+## Le Java ! La pratique :3
+
+### Création d'un projet avec gradle
+
+Si vous venez d'installer Intellij Idea, vous aurez la fenêtre ci-dessous
+
+#imageLeft(new_idea.png, 300px, 1)
+#space(10) Uwu
+
+#newpage
+## Exercices
+
+#new page
+# Pour approfondir votre apprentissage
+
+Beaucoup de site propose des cours sur le java, en voici quelques un :
+- [Jmdoudoux.fr](http://www.jmdoudoux.fr/accueil_java.htm)
+- [Koor.fr](https://koor.fr/Java/Index.wp)
