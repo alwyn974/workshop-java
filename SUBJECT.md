@@ -373,10 +373,25 @@ Il faudra alors attendre la fin de la création du projet gradle (Quand le dossi
 <br>
 <br>
 
-### Lancement d'un projet
+### Lancement d'un projet avec Intellij Idea
 
 Pour lancer un projet Java, à coter du `main` vous aurez un petit logo de lancement, il suffit de cliquer dessus et c'est parti !
 Cela va créer une configuration sur Intellij pour lancer le programme avec ce `main` précisément, car en Java on peut avoir plusieurs mains et en choisir un en lançant un `.jar`
+
+### Build un jar avec Gradle
+
+Si vous voulez générer un jar avec gradle il suffit de faire `gradle build` ou `./gradlew build`. Le jar sera généré dans le dossier `build/libs`
+Vous pourrez le lancer avec `java -jar nomdufichier.jar`.
+Vous aurez remarqué qu'en faisant cette commande il y a une erreur, c'est tout simplement, car aucun main n'a été précisé lors de la compilation #br
+Pour résoudre ce problème, il suffit de mettre le `main` à utiliser dans le `build.gradle`:
+Ajoutez donc ce bloc à la fin du build.gradle
+```groovy
+jar {
+  manifest {
+    attributes "Main-Class" : "re.alwyn974.monsuperworkshop.Main"
+  }
+}
+```
 
 #newpage
 
@@ -390,7 +405,7 @@ Cela va créer une configuration sur Intellij pour lancer le programme avec ce `
 #hint(Concernant le paramètre que prend le main, le main peut prendre soit `String... args`, soit `String[] args`.
 Les méthodes statiques ne peuvent accéder qu'à des variables statiques et des méthodes statiques, sans utiliser d'instance)
 
-#terminal(Lancement avec intellij parce que build c'est long
+#terminal(Lancement avec intellij, parce que c'est plus rapide
 Hello World!)
 
 ### Exercice 2
@@ -406,7 +421,7 @@ Faites une boucle qui va de 1 => 200 et pour chaque nombre suivez ces instructio
 - Sinon on écrit le nombre
 <br>
 
-#terminal(Lancement avec intellij parce que build, c'est long
+#terminal(Lancement avec intellij, parce que c'est plus rapide
 1
 2
 3 -> Fizz
@@ -433,7 +448,7 @@ Vous allez devoir le recréer, en faisant vos propres recherches.
 Il faudra récupérer la valeur minimum et maximum en argument, si un argument n'est pas mis il faudra alors mettre en valeur par défaut: 1 et 100
 Il faudra aussi afficher le nombre de tentatives à la fin du jeu.
 
-#terminal(Lancement avec intellij parce que build, c'est long
+#terminal(Lancement avec intellij, parce que c'est plus rapide
 Your guess? _50_
 Too low!
 Your guess? _100_
@@ -483,24 +498,27 @@ Pour cela vous allez créer un sous package `inheritance` #br
 On va commencer par créer une class `Vehicule` qui sera abstraite et devra contenir :
 - Une méthode publique `void move()` qui sera abstraite
 - Une variable privée et finale `String name` qui sera le nom du véhicule et aura un Getter
-- Une méthode publique `double getSpeed()` qui retournera la vitesse du véhicule
+- Une méthode publique `double getSpeed()` qui sera abstraite
 - Une surcharge de la méthode `String toString()` qui retournera le nom du véhicule et sa vitesse
 
 #hint(Pour créer une méthode abstraite, on utilise `abstract`, il suffit de le mettre après un modifieur de visibilité et avant le type)
 
+#newpage
 ### Exercice 6
 
 On va créer un petit enum `VehiculeType` à notre classe `Vehicule` #br
 L'enum `VehiculeType` devra contenir :
-- Un **constructeur** (oui oui, il y a un constructeur) qui prendra une `String` en argument et qui sera le type du véhicule.
+- Un **constructeur** qui prendra une `String` en argument et qui sera le type du véhicule.
 - Une `String` en final qui sera le nom du type de véhicule
 - Un getter `String getType()` qui retournera le type du véhicule
 - Ajouter un getter à `Vehicule` qui retournera le type du véhicule
-
+#br
 Comme type de véhicule, il nous faudra au moins 3 types de véhicule différents :
 - Car
 - Plane
 - Boat
+
+#hint(Oui, oui, les Enum en Java peuvent avoir des constructeurs, c'est pas mal pratique !)
 
 #warn(Le constructeur d'un Enum est toujours en privé, on ne peut pas instancier un Enum)
 
