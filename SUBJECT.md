@@ -385,29 +385,75 @@ Cela va créer une configuration sur Intellij pour lancer le programme avec ce `
 - Créez votre propre package (ex: `com.github.username.workshop`)
 - Dans ce package créez une classe `HelloWorld.java`
 - Créez une méthode main en `public static` et en prenant en argument un `String... args`
-- Trouvez comment print un `Hello World !\n`
+- Trouvez comment print un `Hello World !\\n`
+
+#hint(Concernant le paramètre que prend le main, le main peut prendre soit `String... args`, soit `String[] args`)
 
 #terminal(Lancement avec intellij parce que build c'est long
 Hello World!)
 
 ### Exercice 2
 
-Créez-le sous package life
+Fichier: FizzBuzz.java
+Specification: Contient un main #br
 
-Créez une classe Entity elle devra posséder :
+Psst vous vous rappeler des solo stumpers, plus précisément de FizzBuzz ?
+Faites une boucle qui va de 1 => 200 et pour chaque nombre suivez ces instructions :
+- Si le nombre est divisible par 3 : on écrit Fizz
+- Si le nombre est divisible par 5 : on écrit Buzz
+- Si le nombre est divisible par 3 et par 5 : on écrit Fizzbuzz
+- Sinon on écrit le nombre
+<br>
 
-- Un constructeur qui initialisera les variables ci-dessous
-- `String name` accessible uniquement via getter/setter 
-- `double x, y, z` accessible uniquement via la classe enfant (ou package) et par getter/setter
+#terminal(Lancement avec intellij parce que build, c'est long
+1
+2
+3 -> Fizz
+4
+5 -> Buzz
+6 -> Fizz
+7 
+8
+9 -> Fizz
+10 -> Buzz
+11
+12 -> Fizz
+13
+14
+15 -> Fizzbuzz)
 
 ### Exercice 3
 
-Créez une classe `EntityLiving` qui héritera de la classe `Entity`, elle devra posséder :
+Fichier: GuessANumber.java
+Specification: Contient un main #br
 
-- `double life` accessible uniquement via getter/setter
-- `boolean isAlive()` une fonction publique pour dire si l'entitée est en vie (life > 0)
-- `String sentence` une variable publique (créer les getter/setter quand même)
-- `void displaySentence()` une fonction qui affichera la sentence
+Vous connaissez `Guess a number` ? C'est un jeu de devinette. Ou vous devez trouver le nombre qui a été crée aléatoirement, à l'aide d'indication du programme si votre nombre est inférieur ou supérieur au nombre créé.
+Vous allez devoir le recréer, en faisant vos propres recherches.
+Il faudra prendre le minimum en `args[0]` et le maximum en `args[1]`, si les arguments ne sont pas mis il faudra alors mettre des valeurs par défaut (1, 100)
+Il faudra aussi afficher le nombre de tentatives à la fin du jeu.
+
+#terminal(Lancement avec intellij parce que build, c'est long
+Your guess? _50_
+Too low!
+Your guess? _100_
+Too high!
+Your guess? _60_
+Too low!
+Your guess? _70_
+Too high!
+Your guess? _65_
+Too low!
+Your guess? _69_
+Too high!
+Your guess? _67_
+Too low!
+Your guess? _68_
+You win!
+It took you 7 tries.)
+
+#hint(Utilisez la classe Scanner et Random du package java.util)
+
+#hint(Une petite doc pour ajouter les arguments sur la configuration Intellij Idea: [Configuration](https://www.jetbrains.com/help/idea/running-applications.html))
 
 ### Exercice 4
 
