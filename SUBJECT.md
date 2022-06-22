@@ -387,15 +387,16 @@ Cela va créer une configuration sur Intellij pour lancer le programme avec ce `
 - Créez une méthode main en `public static` et en prenant en argument un `String... args`
 - Trouvez comment print un `Hello World !\\n`
 
-#hint(Concernant le paramètre que prend le main, le main peut prendre soit `String... args`, soit `String[] args`)
+#hint(Concernant le paramètre que prend le main, le main peut prendre soit `String... args`, soit `String[] args`.
+Les méthodes statiques ne peuvent accéder qu'à des variables statiques et des méthodes statiques, sans utiliser d'instance)
 
 #terminal(Lancement avec intellij parce que build c'est long
 Hello World!)
 
 ### Exercice 2
 
-Fichier: FizzBuzz.java
-Specification: Contient un main #br
+Fichier : FizzBuzz.java
+Spécification : Contient un main #br
 
 Psst vous vous rappeler des solo stumpers, plus précisément de FizzBuzz ?
 Faites une boucle qui va de 1 => 200 et pour chaque nombre suivez ces instructions :
@@ -424,12 +425,12 @@ Faites une boucle qui va de 1 => 200 et pour chaque nombre suivez ces instructio
 
 ### Exercice 3
 
-Fichier: GuessANumber.java
-Specification: Contient un main #br
+Fichier : GuessANumber.java
+Spécification : Contient un main #br
 
 Vous connaissez `Guess a number` ? C'est un jeu de devinette. Ou vous devez trouver le nombre qui a été crée aléatoirement, à l'aide d'indication du programme si votre nombre est inférieur ou supérieur au nombre créé.
 Vous allez devoir le recréer, en faisant vos propres recherches.
-Il faudra prendre le minimum en `args[0]` et le maximum en `args[1]`, si les arguments ne sont pas mis il faudra alors mettre des valeurs par défaut (1, 100)
+Il faudra récupérer la valeur minimum et maximum en argument, si un argument n'est pas mis il faudra alors mettre en valeur par défaut: 1 et 100
 Il faudra aussi afficher le nombre de tentatives à la fin du jeu.
 
 #terminal(Lancement avec intellij parce que build, c'est long
@@ -453,25 +454,92 @@ It took you 7 tries.)
 
 #hint(Utilisez la classe Scanner et Random du package java.util)
 
-#hint(Une petite doc pour ajouter les arguments sur la configuration Intellij Idea: [Configuration](https://www.jetbrains.com/help/idea/running-applications.html))
+#hint(Une petite doc pour ajouter les arguments sur la configuration Intellij Idea : [Configuration](https://www.jetbrains.com/help/idea/running-applications.html))
 
+#newpage
 ### Exercice 4
+
+Fichier: Fibonacci.java
+Spécification: Contient un main #br
+
+Réimplémenter la suite de Fibonacci :
+- En récursive (`recursiveFibonacci(int n)`)
+- En itérative (`iterativeFibonacci(int n)`)
+- Récupérer la valeur de n en argument dans le main, sinon mettre 10 par défaut
+
+#terminal(Lancement avec intellij parce que build, c'est long.
+Suite de Fibonacci de 10:
+Recursive: 55
+Iterative: 55
+)
+
+#hint(Lien vers la suite de [Fibonacci](https://fr.wikipedia.org/wiki/Suite_de_Fibonacci))
 
 ### Exercice 5
 
-Différenciez une classe depuis une liste d'objet.
+Sur les prochains exercices, on va faire un peu d'héritage et utiliser chaque type d'objet.
+Pour cela vous allez créer un sous package `inheritance` #br
 
-#hint(Regardez comment utiliser le **keyword** `instanceof`)
+On va commencer par créer une class `Vehicule` qui sera abstraite et devra contenir :
+- Une méthode publique `void move()` qui sera abstraite
+- Une variable privée et finale `String name` qui sera le nom du véhicule et aura un Getter
+- Une méthode publique `double getSpeed()` qui retournera la vitesse du véhicule
+- Une surcharge de la méthode `String toString()` qui retournera le nom du véhicule et sa vitesse
+
+#hint(Pour créer une méthode abstraite, on utilise `abstract`, il suffit de le mettre après un modifieur de visibilité et avant le type)
 
 ### Exercice 6
 
+On va créer un petit enum `VehiculeType` à notre classe `Vehicule` #br
+L'enum `VehiculeType` devra contenir :
+- Un **constructeur** (oui oui, il y a un constructeur) qui prendra une `String` en argument et qui sera le type du véhicule.
+- Une `String` en final qui sera le nom du type de véhicule
+- Un getter `String getType()` qui retournera le type du véhicule
+- Ajouter un getter à `Vehicule` qui retournera le type du véhicule
+
+Comme type de véhicule, il nous faudra au moins 3 types de véhicule différents :
+- Car
+- Plane
+- Boat
+
+#warn(Le constructeur d'un Enum est toujours en privé, on ne peut pas instancier un Enum)
+
 ### Exercice 7
+
+Maintenant qu'on a un type de Véhicule, ce serait bien d'ajouter un peu de couleur non ?
+On va donc modifier notre classe `Vehicule` pour ajouter :
+- Une variable privée de type `Color` et un getter/setter
+- Modifiez aussi la méthode `toString()` pour maintenant afficher la couleur en plus !
 
 ### Exercice 8
 
 ### Exercice 9
 
 ### Exercice 10
+
+### Exercice 11
+
+### Exercice 12
+
+### Exercice 13
+
+### Exercice 14
+
+### Exercice 15
+
+### Exercice 16
+
+### Exercice 17
+
+### Exercice 18
+
+### Exercice 19
+
+### Exercice 20
+
+Différenciez une classe depuis une liste d'objet.
+
+#hint(Regardez comment utiliser le **keyword** `instanceof`)
 
 ### Tests unitaires
 
