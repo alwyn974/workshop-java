@@ -495,28 +495,32 @@ Iterative: 55
 Sur les prochains exercices, on va faire un peu d'héritage et utiliser chaque type d'objet.
 Pour cela vous allez créer un sous package `inheritance` #br
 
-On va commencer par créer une class `Vehicule` qui sera abstraite et devra contenir :
+On va commencer par créer une class `AbstractVehicule` qui sera abstraite et devra contenir :
 - Une méthode publique `void move()` qui sera abstraite
 - Une variable privée et finale `String name` qui sera le nom du véhicule et aura un Getter
+- Créer un constructeur protégé qui prendra `String name` en paramètre et initialisera la variable finale `name`
 - Une méthode publique `double getSpeed()` qui sera abstraite
 - Une surcharge de la méthode `String toString()` qui retournera le nom du véhicule et sa vitesse
-
-#hint(Pour créer une méthode abstraite, on utilise `abstract`, il suffit de le mettre après un modifieur de visibilité et avant le type)
+<br>
+#terminal(La méthode toString() devrait renvoyer quelque chose comme ça:
+AbstractVehicule: {name: UnNomRandom, speed: 0}
+)
 
 #newpage
 ### Exercice 6
 
-On va créer un petit enum `VehiculeType` à notre classe `Vehicule` #br
+On va créer un petit enum `VehiculeType` pour notre classe `AbstractVehicule` #br
 L'enum `VehiculeType` devra contenir :
 - Un **constructeur** qui prendra une `String` en argument et qui sera le type du véhicule.
 - Une `String` en final qui sera le nom du type de véhicule
 - Un getter `String getType()` qui retournera le type du véhicule
-- Ajouter un getter à `Vehicule` qui retournera le type du véhicule
 #br
 Comme type de véhicule, il nous faudra au moins 3 types de véhicule différents :
 - Car
 - Plane
 - Boat
+#br
+Maintenant, il faut modifier la classe abstraite `AbstractVehicule` pour qu'elle contienne un getter abstrait `VehiculeType getType()` #br
 
 #hint(Oui, oui, les Enum en Java peuvent avoir des constructeurs, c'est pas mal pratique !)
 
@@ -524,12 +528,24 @@ Comme type de véhicule, il nous faudra au moins 3 types de véhicule différent
 
 ### Exercice 7
 
-Maintenant qu'on a un type de Véhicule, ce serait bien d'ajouter un peu de couleur non ?
-On va donc modifier notre classe `Vehicule` pour ajouter :
-- Une variable privée de type `Color` et un getter/setter
+Maintenant qu'on a un type de Véhicule, ce serait bien d'ajouter un peu de couleur non ? 
+<br>
+On va donc modifier notre classe `AbstractVehicule` pour ajouter :
+- Une variable privée de type `Color` avec un getter/setter
+- Ajouter un autre constructeur de `AbstractVehicule` qui prendra le nom et la couleur en paramètre toujours en protected
 - Modifiez aussi la méthode `toString()` pour maintenant afficher la couleur en plus !
 
+#hint(Vous connaissez sprintf ? Trouvez l'équivalent en Java pour facilité la méthode toString())
+
+#newpage
 ### Exercice 8
+
+Créer 3 sous packages à `inheritance` : `fly`, `drive`, `floaty`
+
+Dans chaque package correspondant créer une interface `IFlyable`, `IDriveable` et `IFloatyable` :
+- `IFlyable` devra contenir une méthode publique `void fly()`
+- `IDriveable` devra contenir une méthode publique `void drive()`
+- `IFloatyable` devra contenir une méthode publique `void floaty()`
 
 ### Exercice 9
 
