@@ -628,12 +628,12 @@ public class InheritanceTest {
 #newpage
 ### Exercice 13
 
-Tester l'égalité entre différent String et le type d'un véhicule. Faites-le pour chaque type de véhicule.
+Tester l'égalité entre différent String et le type d'un véhicule. Faites-le pour chaque type de véhicule. <br>
 Il faudra aussi tester la non-égalité entre un String et un type de véhicule.
 
 ### Exercice 14
 
-Maintenant on va tester notre méthode `fromString`. Testez-la avec différents types de véhicule.
+Maintenant on va tester notre méthode `fromString`. Testez-la avec différents types de véhicule. <br>
 Des types valides et non valides. Il faudra tester avec la méthode spéciale de JUnit pour gérer les exceptions !
 
 ### Exercice 15
@@ -652,6 +652,8 @@ On va aussi pouvoir tester la sortie standard `System.out`, pour faire cela il f
 - Créer une variable finale `PrintStream` qui sera l'ancien flux d'erreur
 
 Vous allez devoir changer le flux de sortie standard et d'erreur pour que les tests unitaires puissent fonctionner, il faudra avant chaque test et le restauré après.
+<br>
+Vous allez pouvoir tester l'output que produit le **Main** de FizzBuzz. (Oui, oui, on peut tester un main directement)
 
 #hint(Cherchez l'annotation qui vous facilitera la vie ici: [Javadoc JUnit](https://junit.org/junit5/docs/5.8.1/api/index-files/index-1.html))
 
