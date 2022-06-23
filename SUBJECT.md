@@ -560,39 +560,54 @@ floaty => "Floating")
 
 ### Exercice 10
 
+Fichier: Main.java #br
+
+Créer une méthode qui prendra en paramètre un véhicule et qui affichera son nom, son type, sa couleur et sa vitesse (`showVehicule`)
+
+- Faites une liste d'`AbstractVehicule` et ajouter une dizaine de véhicules dans cette liste. (Différents Véhicules)
+- Pour chaque élément dans la liste, appeler la méthode `showVehicule`
+- Afficher le nombre de véhicules dans la liste
+- Afficher le nombre de véhicules ayant le type `Car`
+- Afficher le nombre de véhicules ayant le type `Plane`
+- Afficher le nombre de véhicules ayant le type `Boat`
+
+#terminal(Exemple:
+Name: HydroJet
+Color: java.awt.Color[r=255,g=0,b=0]
+Speed: 300.0
+Type: PLANE
+...
+Vehicules: 10
+Cars: 4
+Planes: 3
+Boats: 3)
+
+#newpage
 ### Exercice 11
+
+Vous avez sûrement utilisé `getType()` pour compter le nombre de véhicules de chaque type. On va utiliser l'équivalent du `dynamic_cast` maintenant.
+Vous allez devoir créer 3 listes de véhicules différentes:
+- Une liste de `Car`
+- Une liste de `Plane`
+- Une liste de `Boat`
+
+En utilisant la liste d'avant, vous devez ajouter les véhicules de chaque type dans les listes correspondantes.
+
+#hint(Je vous laisse chercher l'équivalent du dynamic_cast. C'est un keyword spécifique à Java)
 
 ### Exercice 12
 
-### Exercice 13
-
-### Exercice 14
-
-### Exercice 15
-
-Comme en C++ le Java possède des exceptions. On va donc créer une Exception pour l'enum VehiculeTyoe.
+Comme en C++ le Java possède des exceptions. On va donc créer une Exception pour l'enum VehiculeType.
 Créez une exception : `VehiculeTypeNotFound` qui sera dérivée d'exception et devra prendre un paramètre `String message`
 <br>
 Ajoute une méthode `fromString` qui prendra en paramètre une `String`, qui retournera un `VehiculeType` et sera statique
 Si la `String` ne correspond à aucun type de véhicule, la méthode devra lancer l'exception qu'on vient de créer
 
-### Exercice 16
-
-### Exercice 17
-
-### Exercice 18
-
-### Exercice 19
-
-### Exercice 20
-
-Différenciez une classe depuis une liste d'objet.
-
-#hint(Regardez comment utiliser le **keyword** `instanceof`)
+Testez votre code voir si l'exception est bien lancée en cas d'erreur.
 
 ### Tests unitaires
 
-Comme tout langage le Java dispose de plusieurs libraries pour faire des tests unitaires, on va utiliser la plus connue: `JUnit`
+Java dispose de plusieurs bibliothèques pour faire des tests unitaires, on va utiliser la plus connue: `JUnit`
 
 #newpage
 # Pour approfondir votre apprentissage
