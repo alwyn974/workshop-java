@@ -597,7 +597,7 @@ En utilisant la liste d'avant, vous devez ajouter les véhicules de chaque type 
 
 ### Exercice 12
 
-Comme en C++ le Java possède des exceptions. On va donc créer une Exception pour l'enum VehiculeType.
+Comme en C++ le Java possède des exceptions. On va donc créer une Exception pour l'enum `VehiculeType`.
 Créez une exception : `VehiculeTypeNotFound` qui sera dérivée d'exception et devra prendre un paramètre `String message`
 <br>
 Ajoute une méthode `fromString` qui prendra en paramètre une `String`, qui retournera un `VehiculeType` et sera statique
@@ -608,6 +608,52 @@ Testez votre code voir si l'exception est bien lancée en cas d'erreur.
 ### Tests unitaires
 
 Java dispose de plusieurs bibliothèques pour faire des tests unitaires, on va utiliser la plus connue: `JUnit`
+Dans le dossier `src/test/` recréer votre package, mais en rajoutant `test` à la fin
+<br>
+On va tester le package inheritance.
+Créez une classe `InheritanceTest`
+<br>
+Importez statiquement toutes les méthodes de classe `Assertions` de junit.
+Syntaxe d'un test unitaire : 
+
+```java
+public class InheritanceTest {
+  @Test
+  public void testVehiculeTypes() {
+    assertEquals("Car", VehiculeType.CAR.getType()); //assertEquals is a static method from "Assertions"
+  }
+}
+```
+
+#newpage
+### Exercice 13
+
+Tester l'égalité entre différent String et le type d'un véhicule. Faites-le pour chaque type de véhicule.
+Il faudra aussi tester la non-égalité entre un String et un type de véhicule.
+
+### Exercice 14
+
+Maintenant on va tester notre méthode `fromString`. Testez-la avec différents types de véhicule.
+Des types valides et non valides. Il faudra tester avec la méthode spéciale de JUnit pour gérer les exceptions !
+
+### Exercice 15
+
+Fichier: WorkshopTest.java #br
+
+On va tester notre méthode itérative et récursive de Fibonacci. Testez que chaque méthode renvoie les mêmes valeurs pour les nombres de 0 à 50.
+
+### Exercice 16
+
+On va aussi pouvoir tester la sortie standard `System.out`, pour faire cela il faudra :
+
+- Créer une variable finale `ByteArrayOutputStream` qui sera le nouveau flux de sortie standard
+- Créer une variable finale `ByteArrayOutputStream` qui sera le nouveau flux de sortie d'erreur
+- Créer une variable finale `PrintStream` qui sera l'ancien flux de sortie standard
+- Créer une variable finale `PrintStream` qui sera l'ancien flux d'erreur
+
+Vous allez devoir changer le flux de sortie standard et d'erreur pour que les tests unitaires puissent fonctionner, il faudra avant chaque test et le restauré après.
+
+#hint(Cherchez l'annotation qui vous facilitera la vie ici: [Javadoc JUnit](https://junit.org/junit5/docs/5.8.1/api/index-files/index-1.html))
 
 #newpage
 # Pour approfondir votre apprentissage
