@@ -522,10 +522,6 @@ Comme type de véhicule, il nous faudra au moins 3 types de véhicule différent
 #br
 Maintenant, il faut modifier la classe abstraite `AbstractVehicule` pour qu'elle contienne un getter abstrait `VehiculeType getType()` #br
 
-#hint(Oui, oui, les Enum en Java peuvent avoir des constructeurs, c'est pas mal pratique !)
-
-#warn(Le constructeur d'un Enum est toujours en privé, on ne peut pas instancier un Enum)
-
 ### Exercice 7
 
 Maintenant qu'on a un type de Véhicule, ce serait bien d'ajouter un peu de couleur non ? 
@@ -537,7 +533,6 @@ On va donc modifier notre classe `AbstractVehicule` pour ajouter :
 
 #hint(Vous connaissez sprintf ? Trouvez l'équivalent en Java pour facilité la méthode toString())
 
-#newpage
 ### Exercice 8
 
 Créer 3 sous packages à `inheritance` : `fly`, `drive`, `floaty`
@@ -547,7 +542,21 @@ Dans chaque package correspondant créer une interface `IFlyable`, `IDriveable` 
 - `IDriveable` devra contenir une méthode publique `void drive()`
 - `IFloatyable` devra contenir une méthode publique `void floaty()`
 
+#newpage
 ### Exercice 9
+
+Créer 3 classes qui hériteront de `AbstractVehicule` et d'une interface `IFlyable`, `IDriveable` et `IFloatyable` :
+- `Car`, `Plane`, `Boat`
+- Chaque constructeur prendra le nom, la vitesse et la couleur en paramètre et sera publique
+- Déclarer une variable protégée pour la vitesse
+- Dans chaque méthode abstraite implémentée, afficher un message correspondant dans la console
+- La méthode `getType()` devra retourner le type de véhicule correspondant
+<br>
+#terminal(Exemples:
+move => "Moved"
+drive => "Driving"
+fly => "Flying"
+floaty => "Floating")
 
 ### Exercice 10
 
@@ -560,6 +569,12 @@ Dans chaque package correspondant créer une interface `IFlyable`, `IDriveable` 
 ### Exercice 14
 
 ### Exercice 15
+
+Comme en C++ le Java possède des exceptions. On va donc créer une Exception pour l'enum VehiculeTyoe.
+Créez une exception : `VehiculeTypeNotFound` qui sera dérivée d'exception et devra prendre un paramètre `String message`
+<br>
+Ajoute une méthode `fromString` qui prendra en paramètre une `String`, qui retournera un `VehiculeType` et sera statique
+Si la `String` ne correspond à aucun type de véhicule, la méthode devra lancer l'exception qu'on vient de créer
 
 ### Exercice 16
 
