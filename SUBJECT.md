@@ -618,12 +618,16 @@ Flying)
 Comme en C++ le Java possède des exceptions. On va donc créer une Exception pour l'enum `VehiculeType`.
 Créez une exception : `VehiculeTypeNotFound` qui sera dérivée d'exception et devra prendre un paramètre `String message`
 <br>
-Ajoute une méthode`fromString` qui prendra en paramètre une `String`, qui retournera un `VehiculeType` et sera publique et statique
+Ajoutez une méthode `fromString` qui prendra en paramètre une `String`, qui retournera un `VehiculeType` et sera publique et statique
 Si la `String` ne correspond à aucun type de véhicule, la méthode devra lancer l'exception qu'on vient de créer
 
 Testez votre code voir si l'exception est bien lancée en cas d'erreur.
 
-#hint(Javadoc de l'exception : [lien](https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html))
+#hint(Javadoc de l'exception : [lien](https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html)
+Javadoc d'Enum : [lien](https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html), psst regardez la méthodes `values()`
+N'oubliez pas d'ajouter `throws` à la méthode)
+
+#warn(Interdiction de faire des conditions pour chaque type.)
 
 ### Tests unitaires
 
