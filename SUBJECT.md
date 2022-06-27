@@ -582,18 +582,33 @@ Cars: 4
 Planes: 3
 Boats: 3)
 
-#newpage
+#hint(Javadoc de l'interface List : [lien](https://docs.oracle.com/javase/8/docs/api/java/util/List.html))
+
 ### Exercice 11
 
 Vous avez sûrement utilisé `getType()` pour compter le nombre de véhicules de chaque type. On va utiliser l'équivalent du `dynamic_cast` maintenant.
-Vous allez devoir créer 3 listes de véhicules différentes:
+Vous allez devoir créer 3 listes de véhicules différentes :
 - Une liste de `Car`
 - Une liste de `Plane`
 - Une liste de `Boat`
+<br>
 
-En utilisant la liste d'avant, vous devez ajouter les véhicules de chaque type dans les listes correspondantes.
+En utilisant la liste d'avant, vous devez ajouter les véhicules de chaque type dans les listes correspondantes. #br
+En fonctions des listes, appeler la méthode correspondante à chaque type. (Méthode de l'interface)
 
 #hint(Je vous laisse chercher l'équivalent du dynamic_cast. C'est un keyword spécifique à Java)
+
+#terminal(Exemple:
+Driving
+Driving
+Driving
+Driving
+Floaty
+Floaty
+Floaty
+Flying
+Flying
+Flying)
 
 ### Exercice 12
 
@@ -605,6 +620,7 @@ Si la `String` ne correspond à aucun type de véhicule, la méthode devra lance
 
 Testez votre code voir si l'exception est bien lancée en cas d'erreur.
 
+#newpage
 ### Tests unitaires
 
 Java dispose de plusieurs bibliothèques pour faire des tests unitaires, on va utiliser la plus connue: `JUnit`
