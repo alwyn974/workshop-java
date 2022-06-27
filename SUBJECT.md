@@ -512,7 +512,7 @@ AbstractVehicule: {name: UnNomRandom, speed: 0}
 On va créer un petit enum `VehiculeType` pour notre classe `AbstractVehicule` #br
 L'enum `VehiculeType` devra contenir :
 - Un **constructeur** qui prendra une `String` en argument et qui sera le type du véhicule.
-- Une `String` en final qui sera le nom du type de véhicule
+- Une `String` en privée et finale qui sera le nom du type de véhicule
 - Un getter `String getType()` qui retournera le type du véhicule
 #br
 Comme type de véhicule, il nous faudra au moins 3 types de véhicule différents :
@@ -586,7 +586,7 @@ Boats: 3)
 
 ### Exercice 11
 
-Vous avez sûrement utilisé `getType()` pour compter le nombre de véhicules de chaque type. On va utiliser l'équivalent du `dynamic_cast` maintenant.
+Vous avez sûrement utilisé `getType()` pour compter le nombre de véhicules de chaque type. On va utiliser l'équivalent du `dynamic_cast` maintenant. (Uniquement pour vérifer le type d'une classe)
 Vous allez devoir créer 3 listes de véhicules différentes :
 - Une liste de `Car`
 - Une liste de `Plane`
@@ -610,17 +610,21 @@ Flying
 Flying
 Flying)
 
+#hint(Psst regardez les `Stream` de java 8: [lien](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html))
+
+#newpage
 ### Exercice 12
 
 Comme en C++ le Java possède des exceptions. On va donc créer une Exception pour l'enum `VehiculeType`.
 Créez une exception : `VehiculeTypeNotFound` qui sera dérivée d'exception et devra prendre un paramètre `String message`
 <br>
-Ajoute une méthode `fromString` qui prendra en paramètre une `String`, qui retournera un `VehiculeType` et sera statique
+Ajoute une méthode`fromString` qui prendra en paramètre une `String`, qui retournera un `VehiculeType` et sera publique et statique
 Si la `String` ne correspond à aucun type de véhicule, la méthode devra lancer l'exception qu'on vient de créer
 
 Testez votre code voir si l'exception est bien lancée en cas d'erreur.
 
-#newpage
+#hint(Javadoc de l'exception : [lien](https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html))
+
 ### Tests unitaires
 
 Java dispose de plusieurs bibliothèques pour faire des tests unitaires, on va utiliser la plus connue: `JUnit`
@@ -641,7 +645,6 @@ public class InheritanceTest {
 }
 ```
 
-#newpage
 ### Exercice 13
 
 Tester l'égalité entre différent String et le type d'un véhicule. Faites-le pour chaque type de véhicule. <br>
@@ -650,7 +653,10 @@ Il faudra aussi tester la non-égalité entre un String et un type de véhicule.
 ### Exercice 14
 
 Maintenant on va tester notre méthode `fromString`. Testez-la avec différents types de véhicule. <br>
-Des types valides et non valides. Il faudra tester avec la méthode spéciale de JUnit pour gérer les exceptions !
+Des types valides et non valides. <br>
+Il faudra tester avec la méthode spéciale de JUnit pour gérer les exceptions !
+
+#hint(Toutes les méthodes d'assertions de JUnit : [lien](https://junit.org/junit5/docs/5.8.2/api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html))
 
 ### Exercice 15
 
@@ -659,6 +665,8 @@ Fichier: WorkshopTest.java #br
 On va tester notre méthode itérative et récursive de Fibonacci. Testez que chaque méthode renvoie les mêmes valeurs pour les nombres de 0 à 50.
 
 ### Exercice 16
+
+Fichier: FizzBuzzTest.java
 
 On va aussi pouvoir tester la sortie standard `System.out`, pour faire cela il faudra :
 
