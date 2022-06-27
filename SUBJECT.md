@@ -654,6 +654,7 @@ public class InheritanceTest {
 Tester l'égalité entre différent String et le type d'un véhicule. Faites-le pour chaque type de véhicule. <br>
 Il faudra aussi tester la non-égalité entre un String et un type de véhicule.
 
+#newpage
 ### Exercice 14
 
 Maintenant on va tester notre méthode `fromString`. Testez-la avec différents types de véhicule. <br>
