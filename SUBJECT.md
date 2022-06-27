@@ -596,7 +596,7 @@ Vous allez devoir créer 3 listes de véhicules différentes :
 En utilisant la liste d'avant, vous devez ajouter les véhicules de chaque type dans les listes correspondantes. #br
 En fonctions des listes, appeler la méthode correspondante à chaque type. (Méthode de l'interface)
 
-#hint(Je vous laisse chercher l'équivalent du dynamic_cast. C'est un keyword spécifique à Java)
+#hint(Je vous laisse chercher l'équivalent du **dynamic_cast**. C'est un keyword spécifique à Java)
 
 #terminal(Exemple:
 Driving
