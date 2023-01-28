@@ -691,3 +691,7 @@ Vous allez pouvoir tester l'output que produit le **Main** de FizzBuzz. (Oui, ou
 Beaucoup de site propose des cours sur le Java, en voici quelques un :
 - [Jmdoudoux.fr](https://www.jmdoudoux.fr/accueil_java.htm)
 - [Koor.fr](https://koor.fr/Java/Index.wp)
+
+# Merci
+
+Merci d'avoir suivi ce workshop, n'hésitez pas à me contacter si vous avez des questions ou des remarques.
