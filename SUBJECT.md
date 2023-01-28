@@ -32,7 +32,7 @@ version:		1.0
 
 ## Pré-requis
 
-Si vous n'avez pas déjà installé les outils nécessaires à ce workshop suivez les instructions situées ici : #br
+Si vous n'avez pas déjà installé les outils nécessaires à ce workshop, suivez les instructions situées ici : #br
 [https://github.com/alwyn974/workshop-java/blob/master/REQUIREMENTS.md](https://github.com/alwyn974/workshop-java/blob/master/REQUIREMENTS.md)
 
 #newpage
@@ -76,7 +76,7 @@ Ils possèdent donc leur équivalent en tant d'objet `Double`, `Integer`, `Long`
 
 #### Classes
 
-- `enum` les enums en java sont beaucoup plus complet que ceux en C/C++, vu que ce sont des objets, on peut y assigner plus qu'un simple Integer comme valeur
+- `enum` les enums en java sont beaucoup plus complets que ceux en C/C++, vu que ce sont des objets, on peut y assigner plus qu'un simple Integer comme valeur
 - `interface` permet de créer une interface
 - `abstract class` permet de créer une classe abstraite
 - `class` permet de créer une classe normale
@@ -184,7 +184,7 @@ public class Main {
 
 ### Structure d'un projet java
 
-Les projets Java sont principalement généré par des builds tools, comme `gradle` qu'on va utiliser dans ce workshop.
+Les projets Java sont principalement générés par des builds tools, comme `gradle` qu'on va utiliser dans ce workshop.
 La structure reste plutôt basique un dossier `src` où l'on mettra tout notre code, néanmoins en utilisant gradle dans ce dossier vous aurez un dossier `test` et un dossier `main`.
 Le dossier `test` est pour les tests unitaires et le dossier `main` pour mettre votre code.
 
@@ -231,7 +231,7 @@ En Java tout code doit être dans une classe/interface/enum. On ne peut pas déc
 Pour créer une classe/interface/enum, il y a une structure à suivre :
 
 - On commence par `public` ou rien (dans ce cas la classe sera en privée)
-- Ensuite on précise le type d'objet que l'on crée (`class`, `interface`, `enum`, `abstract class`)
+- Ensuite, on précise le type d'objet que l'on crée (`class`, `interface`, `enum`, `abstract class`)
 - On précise le nom de l'objet
 - Si on veut faire de l'héritage, on utilise `extends` et/ou `implements` pour les interfaces et on précise le nom de la classe parente
 - Et après on ouvre des accolades
@@ -398,7 +398,7 @@ jar {
 ### Exercice 1
 
 - Créez votre propre package (ex: `com.github.username.workshop`)
-- Dans ce package créez une classe `HelloWorld.java`
+- Dans ce package, créez une classe `HelloWorld.java`
 - Créez une méthode main en `public static` et en prenant en argument un `String... args`
 - Trouvez comment print un `Hello World !\\n`
 
@@ -413,12 +413,11 @@ Hello World!)
 Fichier : FizzBuzz.java
 Spécification : Contient un main #br
 
-Psst vous vous rappeler des solo stumpers, plus précisément de FizzBuzz ?
 Faites une boucle qui va de 1 => 200 et pour chaque nombre suivez ces instructions :
 - Si le nombre est divisible par 3 : on écrit Fizz
 - Si le nombre est divisible par 5 : on écrit Buzz
 - Si le nombre est divisible par 3 et par 5 : on écrit Fizzbuzz
-- Sinon on écrit le nombre
+- Sinon, on écrit le nombre
 <br>
 
 #terminal(Lancement avec intellij, parce que c'est plus rapide
@@ -443,7 +442,7 @@ Faites une boucle qui va de 1 => 200 et pour chaque nombre suivez ces instructio
 Fichier : GuessANumber.java
 Spécification : Contient un main #br
 
-Vous connaissez `Guess a number` ? C'est un jeu de devinette. Ou vous devez trouver le nombre qui a été crée aléatoirement, à l'aide d'indication du programme si votre nombre est inférieur ou supérieur au nombre créé.
+Vous connaissez `Guess a number` ? C'est un jeu de devinette. Ou vous devez trouver le nombre qui a été créé aléatoirement, à l'aide d'indication du programme si votre nombre est inférieur ou supérieur au nombre créé.
 Vous allez devoir le recréer, en faisant vos propres recherches.
 Il faudra récupérer la valeur minimum et maximum en argument, si un argument n'est pas mis il faudra alors mettre en valeur par défaut: 1 et 100
 Il faudra aussi afficher le nombre de tentatives à la fin du jeu.
@@ -586,7 +585,7 @@ Boats: 3)
 
 ### Exercice 11
 
-Vous avez sûrement utilisé `getType()` pour compter le nombre de véhicules de chaque type. On va utiliser l'équivalent du `dynamic_cast` maintenant. (Uniquement pour vérifer le type d'une classe)
+Vous avez sûrement utilisé `getType()` pour compter le nombre de véhicules de chaque type. On va utiliser l'équivalent du `dynamic_cast` (C++) maintenant. (Uniquement pour vérifer le type d'une classe)
 Vous allez devoir créer 3 listes de véhicules différentes :
 - Une liste de `Car`
 - Une liste de `Plane`
@@ -624,7 +623,7 @@ Si la `String` ne correspond à aucun type de véhicule, la méthode devra lance
 Testez votre code voir si l'exception est bien lancée en cas d'erreur.
 
 #hint(Javadoc de l'exception : [lien](https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html)
-Javadoc d'Enum : [lien](https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html), psst regardez la méthodes `values()`
+Javadoc d'Enum : [lien](https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html), psst, regardez la méthode `values()`
 N'oubliez pas d'ajouter `throws` à la méthode)
 
 #warn(Interdiction de faire des conditions pour chaque type.)
@@ -657,7 +656,7 @@ Il faudra aussi tester la non-égalité entre un String et un type de véhicule.
 #newpage
 ### Exercice 14
 
-Maintenant on va tester notre méthode `fromString`. Testez-la avec différents types de véhicule. <br>
+Maintenant, on va tester notre méthode `fromString`. Testez-la avec différents types de véhicule. <br>
 Des types valides et non valides. <br>
 Il faudra tester avec la méthode spéciale de JUnit pour gérer les exceptions !
 
@@ -667,7 +666,7 @@ Il faudra tester avec la méthode spéciale de JUnit pour gérer les exceptions 
 
 Fichier: WorkshopTest.java #br
 
-On va tester notre méthode itérative et récursive de Fibonacci. Testez que chaque méthode renvoie les mêmes valeurs pour les nombres de 0 à 50.
+On va tester notre méthode itérative et récursive de Fibonacci. Testez que chaque méthode renvoie les mêmes valeurs pour les nombres de 0 à 20.
 
 ### Exercice 16
 
@@ -690,5 +689,5 @@ Vous allez pouvoir tester l'output que produit le **Main** de FizzBuzz. (Oui, ou
 # Pour approfondir votre apprentissage
 
 Beaucoup de site propose des cours sur le Java, en voici quelques un :
-- [Jmdoudoux.fr](http://www.jmdoudoux.fr/accueil_java.htm)
+- [Jmdoudoux.fr](https://www.jmdoudoux.fr/accueil_java.htm)
 - [Koor.fr](https://koor.fr/Java/Index.wp)
